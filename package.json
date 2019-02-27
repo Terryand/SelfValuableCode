@@ -1,0 +1,14 @@
+{
+  "name": "expressworkbench",
+  "version": "1.0.0",
+  "description": "基于 Express 的静态文件开发工作台",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mazhaojun",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

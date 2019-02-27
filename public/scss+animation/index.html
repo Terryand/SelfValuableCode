@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <title>课程详情页 H5</title>
+
+  <link rel="stylesheet" href="//statics.eoffcn.com/statics/eoffcn_icon/icon_fonts/iconfont.css">
+  <link rel="stylesheet" href="//statics.eoffcn.com/statics/animate/animate.min.css">
+  <link rel="stylesheet" href="public/index.scss.css">
+
+  <script type="text/javascript" charset="utf-8" src="//m.eoffcn.com/statics/js/flexible.js"></script>
+  <script type="text/javascript" charset="utf-8" src="//m.eoffcn.com/statics/js/flexible_css.js"></script>
+
+  <meta name="mda" content="mda-jbemk0ig409qqtr6">
+  <meta name="adurl" content="//www.eoffcn.com">
+  <meta name="adsrc" content="http://statics.eoffcn.com/statics/images/show/xqydt.jpg">
+
+  <style>
+    a:hover, a:visited, a:link, a:active {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a class="go-back hide">
+        <i class="ei ei-zuo"></i>
+      </a>
+      <div class="title">
+        课程详情
+      </div>
+      <a class="nav-button">
+        导航
+        <span class="animated"><i class="ei ei-xia"></i></span>
+      </a>
+    </header>
+
+    <div class="drawer" style="display: none;">
+      <div class="content animated">
+        <ul class="all-site-nav">
+          <li><a href="//m.eoffcn.com">网校首页</a></li>
+          <li><a href="//m.eoffcn.com/xuanke.html">选课中心</a></li>
+          <li><a href="//m.eoffcn.com/kszx.html">考试资讯</a></li>
+          <li><a href="//m.eoffcn.com/stixz.html">历年考题</a></li>
+          <li><a href="//m.eoffcn.com/jiqiao.html">考试技巧</a></li>
+          <li><a href="//m.eoffcn.com/mfst.html">免费视频</a></li>
+          <li><a href="//m.eoffcn.com/tingke.php">听课中心</a></li>
+          <li><a href="//m.eoffcn.com/ttkc.php">天天考串</a></li>
+          <li><a href="//m.eoffcn.com/help/">帮助中心</a></li>
+        </ul>
+    </div>
+    </div>
+
+    <div class="banner">
+      <img src="public/img/big.jpg" alt="课程名称">
+      <a class="play-btn">
+        <img src="public/img/play-btn.png" alt="点击播放">
+      </a>
+      <div id="player-wrapper" style="display: none;"></div>
+    </div>
+
+    <div class="summary">
+      <h3>2019年中央遴选面试专项辅导考点</h3>
+      <p class="price"><span class="small">￥</span><span id="price1">6800</span></p>
+      <p class="ori-price">原价 <span class="cancelled" id="ori_price">￥4000</span></p>
+      <p class="tag" id="discount">8.2折</p>
+      <div class="protocol" id="protocol">笔试不过退5500元；面试不过退6000元</div>
+
+      <div class="specification">
+        <span class="inline-label">班次：</span>
+        <span id="class_name">高中语文</span>
+
+        <!-- 无班次时，需要隐藏，请增加一个class 'hide' -->
+        <a class="inline-btn">
+          更改班次
+          <i class="ei ei-you"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- 课程信息切换按键 -->
+    <div class="info-nav-wrapper" id="info-nav-wrapper">
+      <ul class="info-nav">
+        <li class="active">
+          <a>课程介绍</a>
+          <div class="underline"></div>
+        </li>
+        <li>
+          <a>课程大纲</a>
+          <div class="underline"></div>
+        </li>
+        <li>
+          <a>师资展示</a>
+          <div class="underline"></div>
+        </li>
+        <li>
+          <a>听课指导</a>
+          <div class="underline"></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 课程信息展示 -->
+    <ul class="info-show">
+      <li class="active">
+        <div class="chunk">
+          <h4>
+            <div class="sideline"></div>
+            特色服务
+          </h4>
+          <div class="content">
+            <ul class="labels">
+              <li>
+                <i class="ei ei-zhengque"></i>
+                24h答疑
+              </li>
+              <li>
+                <i class="ei ei-zhengque"></i>
+                多平台学习
+              </li>
+              <li>
+                <i class="ei ei-zhengque"></i>
+                配套下载讲义
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chunk">
+          <h4>
+            <div class="sideline"></div>
+            课程简介
+          </h4>
+          <div class="content">
+            <table class="size">
+              <tr>
+                <td class="inline-label">
+                  课程时长：
+                </td>
+                <td id="length">
+                  直播: 精讲班(教综12次+学科12次)<br />
+                  面授: 5个周末(走读)+8天8晚(走读)+8天8晚 (含住宿)<br />
+                  面试: 面试理论+4次互动
+                </td>
+              </tr>
+              <tr>
+                <td class="inline-label">
+                  上课时间：
+                </td>
+                <td>
+                  直播开班时间：2月19日
+                </td>
+              </tr>
+              <tr>
+                <td class="inline-label">
+                  授课科目：
+                </td>
+                <td>
+                  学科 教综
+                </td>
+              </tr>
+              <tr>
+                <td class="inline-label">
+                  上课形式：
+                </td>
+                <td>
+                  直播+线下
+                </td>
+              </tr>
+              <tr>
+                <td class="inline-label">
+                  有效期：
+                </td>
+                <td>
+                  一年(协议班次截止于协议终止当天)
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- if (!班次介绍) { 增加 class 'hide' } -->
+        <div class="chunk">
+          <h4>
+            <div class="sideline"></div>
+            班次介绍
+          </h4>
+          <div class="content">
+            {班次介绍 - 正文}
+          </div>
+        </div>
+
+        <!-- if (!课程安排) { 增加 class 'hide' } -->
+        <div class="chunk">
+          <h4>
+            <div class="sideline"></div>
+            课程安排
+          </h4>
+          <div class="content">
+            {课程安排 - 正文}
+          </div>
+        </div>
+
+        <!-- if (!适用人群) { 增加 class 'hide' } -->
+        <div class="chunk">
+          <h4>
+            <div class="sideline"></div>
+            适用人群
+          </h4>
+          <div class="content">
+            {适用人群 - 正文}
+          </div>
+        </div>
+
+        <!-- if (!教学目标) { 增加 class 'hide' } -->
+        <div class="chunk">
+          <h4>
+            <div class="sideline"></div>
+            教学目标
+          </h4>
+          <div class="content">
+            {教学目标 - 正文}
+          </div>
+        </div>
+
+        <!-- if (!退费说明) { 增加 class 'hide' } -->
+        <div class="chunk hide">
+          <h4>
+            <div class="sideline"></div>
+            退费说明
+          </h4>
+          <div class="content">
+            {退费说明 - 正文}
+          </div>
+        </div>
+      </li>
+
+      <li class="no-padding">
+        <!-- 第一棵树展开 -->
+        <div class="collapse active">
+          <a class="collapse-header">
+            第一层级名称第一层级名称第一层级名称第一层级名称第一层级名称
+            <span class="animated"><i class="ei ei-arrow-bottom"></i></span>
+          </a>
+          <div class="collapse-content" style="display: block;">
+            <h5>
+              <div class="sideline"></div>
+              <p>
+                第一章：行测技巧 > 第一周 > 第一期：结构化知识论
+              </p>
+            </h5>
+            <ul class="courseware">
+              <li>
+                <i>01.</i>
+                教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识
+              </li>
+              <li>
+                <i>02.</i>
+                教育教学知识
+              </li>
+            </ul>
+          </div>
+          <div class="collapse-content">
+            <h5>
+              <div class="sideline"></div>
+              <p>
+                第二章：行测技巧 > 第一周 > 第二期：结构化知识论 > 第一节：高分攻略知识能力提升技巧
+              </p>
+            </h5>
+            <ul class="courseware">
+              <li>
+                <i>03.</i>
+                教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="collapse">
+          <div class="collapse-header">
+            第一层级名称第一层级名称
+            <span class="animated"><i class="ei ei-arrow-bottom"></i></span>
+          </div>
+          <div class="collapse-content animated">
+            <h5>
+              <div class="sideline"></div>
+              <p>
+                第一章：行测技巧 > 第一周 > 第一期：结构化知识论
+              </p>
+            </h5>
+            <ul class="courseware">
+              <li>
+                <i>01.</i>
+                教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识
+              </li>
+              <li>
+                <i>02.</i>
+                教育教学知识
+              </li>
+            </ul>
+          </div>
+          <div class="collapse-content">
+            <h5>
+              <div class="sideline"></div>
+              <p>
+                第一章：行测技巧 > 第一周 > 第二期：结构化知识论 > 第一节：高分攻略知识能力提升技巧
+              </p>
+            </h5>
+            <ul class="courseware">
+              <li>
+                <i>03.</i>
+                教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="spokesman">
+          <!-- 小宣传图 -->
+          <a class="secondary-ad" href="//www.eoffcn.com">
+            <img src="public/img/small.jpg">
+          </a>
+
+          <ul class="spokesman-list">
+            <li>
+              <img src="public/img/teacher.png" alt="叶雨晴">
+              <h4>
+                叶雨晴
+                <p>幼儿园教育心理学</p>
+              </h4>
+            </li>
+            <li>
+              <img src="public/img/teacher.png" alt="叶雨晴">
+              <h4>
+                叶雨晴
+                <p>幼儿园教育心理学</p>
+              </h4>
+            </li>
+            <li>
+              <img src="public/img/teacher.png" alt="叶雨晴">
+              <h4>
+                叶雨晴
+                <p>幼儿园教育心理学</p>
+              </h4>
+            </li>
+            <li>
+              <img src="public/img/teacher.png" alt="叶雨晴">
+              <h4>
+                叶雨晴
+                <p>幼儿园教育心理学</p>
+              </h4>
+            </li>
+            <div class="clear"></div>
+          </ul>
+        </div>
+      </li>
+
+      <li class="no-padding">
+        <div class="reply-chunk">
+          <div class="mark">Q1</div>
+          <div class="reply">
+            <h4>购买课程后如何获得听课账号？</h4>
+            <div>
+              购课需要注册用户名进行登录后进行，听课账号即为注册用户名。
+            </div>
+          </div>
+        </div>
+        <div class="reply-chunk">
+          <div class="mark">Q2</div>
+          <div class="reply">
+            <h4>注册时提示用户名已存在或忘记密码如何进行操作？</h4>
+            <div>
+              在<a href="//m.eoffcn.com">中公网校首页</a>点击"听课中心"进入登录界面，
+              点击"忘记密码"，根据提示操作重置密码，然后再进行登录学习。
+            </div>
+          </div>
+        </div>
+        <div class="reply-chunk">
+          <div class="mark">Q3</div>
+          <div class="reply">
+            <h4>购买后如何进行听课？</h4>
+            <div>
+              中公网校课程支持多设备在线和离线学习！
+              1.PC端学员登录<a href="//e.eoffcn.com">中公网校听课中心</a>
+              2.移动端学员需在各大应用市场搜索，中公网校在线课堂APP，已下载学员打开APP即可开始学习
+            </div>
+          </div>
+        </div>
+        <div class="reply-chunk">
+          <div class="mark">Q4</div>
+          <div class="reply">
+            <h4>课程可以使用多久，是否有效期限制？</h4>
+            <div>
+              中公网校非协议类课程1年有效期；协议类课程以协议有效期为准，退费后课程随之关闭；面试1对6实战演练课程，一般限制到考试前一天截止。
+            </div>
+          </div>
+        </div>
+        <div class="reply-chunk">
+          <div class="mark">Q5</div>
+          <div class="reply">
+            <h4>课程有没有学习次数限制？</h4>
+            <div>
+              中公网校课程在有效期内，可以随时学习，反复学习，没有次数限制。
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="back-top-container">
+    <a class="back-top">
+      <p>
+        <i class="ei ei-fanhuidingbu1"></i><br />
+        顶部
+      </p>
+    </a>
+  </div>
+
+  <div class="buy-area">
+    <p><span class="small">￥</span><span id="price2">6800</span></p>
+
+    <div class="btn-group">
+      <a class="zx">在线咨询</a>
+      <!-- 如果是部分班次，这里请直接给支付 url。否则不要修改这里 -->
+      <a href="javascript:;" class="buy">立即购买</a>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div class="order-selector-wrapper">
+    <div class="order-selector animated">
+      <h3>
+        请选择班次
+        <a class="close-btn">
+          <i class="ei ei-guanbi"></i>
+        </a>
+      </h3>
+
+      <div class="options-wrapper">
+        <!-- 请通过 data-id 字段，提供班次的 cid / pid。 默认的班次通过 class="active" 标记 -->
+        <a class="active" data-id="123" data-type="pid">江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试</a>
+        <a data-id="200091" data-type="pid">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+        <a data-id="198508">江苏省公务员考试</a>
+      </div>
+
+      <!-- 模板在此提供默认班次的支付链接 -->
+      <div class="sure-buy-wrapper">
+        <a id="pay_btn" href="//buy?id=123" class="sure-buy">确&nbsp;&nbsp;定</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="//statics.eoffcn.com/statics/js/index/jquery.min.js"></script>
+  <script src="//statics.eoffcn.com/statics/js/JQ_plugin/scrollToSmoothly.js"></script>
+  <script charset="gb2312" src="//statics.eoffcn.com/statics/js/baidu/cyberplayer.js"></script>
+  <script src="public/js.js"></script>
+</body>
+</html>

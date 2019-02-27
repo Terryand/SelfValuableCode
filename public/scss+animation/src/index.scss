@@ -1,0 +1,720 @@
+@import 'base';
+@import 'theme';
+
+.jw-adv {
+  width: 60% !important;
+  height: 66% !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%);
+}
+
+body, .page {
+  background: $bodyBackground;
+}
+
+.page {
+  padding-bottom: 1.866667rem;
+}
+
+.drawer {
+  z-index: 400;
+  @include suspendButton(0, 0);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+
+  .content {
+    position: fixed;
+    left: 50%;
+    top: 1.120000rem;
+    width: $pageWidth;
+    margin-left: 0 - $pageWidth / 2;
+    background: #fff;
+
+    .all-site-nav {
+      > li {
+        display: block;
+        padding: 0 $bigPaddingValue;
+        border-top: $commonBorder;
+
+        &:last-of-type {
+          border-bottom: $commonBorder;
+        }
+
+        a {
+          display: block;
+          font-size: 0.400000rem;
+          line-height: 1.066667rem;
+          color: $primaryFontColor;
+
+          &:active {
+            color: $activeColor;
+          }
+        }
+      }
+    }
+
+    .help-center {
+      display: block;
+      margin: 0.240000rem auto;
+      text-align: center;
+      background: #3bb4f2;
+      font-size: 0.320000rem;
+      line-height: 0.640000rem;
+      color: #fff;
+      border-radius: 0.080000rem;
+    }
+  }
+}
+
+.back-top-container {
+  display: none;
+
+  .back-top {
+    z-index: 100;
+    @include suspendButton (0.400000rem, 3.600000rem);
+    width: 1.200000rem;
+    height: 1.200000rem;
+    display: table;
+    border: $commonBorder;
+    border-radius: 0.600000rem;
+    background: rgba(255, 255, 255, 0.85);
+
+    > p {
+      @include centerAndMiddleCell;
+      color: $primaryFontColor;
+      font-size: 0.293333rem;
+
+      .ei {
+        font-size: 0.400000rem;
+      }
+    }
+  }
+}
+
+.buy-area {
+  z-index: 200;
+  @include suspendButton(50%, 0, $pageWidth);
+  @include oneLineHeightBlock(1.866667rem);
+  border-top: $commonBorder;
+  background: $blockBackground;
+
+  > p {
+    padding-left: $bigPaddingValue;
+    font-size: 0.666667rem;
+    color: $activeColor;
+
+    .small {
+      font-size: 0.480000rem;
+    }
+  }
+
+  .btn-group {
+    @include oneLineHeightBlock(1.200000rem);
+    position: absolute;
+    right: $bigPaddingValue + 0.05rem;
+    bottom: 0.320000rem;
+    text-align: center;
+
+    > a {
+      float: left;
+      display: block;
+      width: 2.960000rem;
+      font-size: 0.453333rem;
+      color: #fff;
+      box-shadow: 0 0 0.133333rem rgba(255, 128, 63, 0.2);
+
+      &.zx {
+        border-top-left-radius: 0.600000rem;
+        border-bottom-left-radius: 0.600000rem;
+        background: linear-gradient(to right, #ffab1a, #ff8040);
+      }
+
+      &.buy {
+        width: 2.980000rem;
+        border-top-right-radius: 0.600000rem;
+        border-bottom-right-radius: 0.600000rem;
+        background: linear-gradient(to right, #ff401a, #ef533d);
+      }
+    }
+  }
+}
+
+.order-selector-wrapper {
+  z-index: 200;
+  display: none;
+  @include suspendButton(50%, 0, $pageWidth);
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  .order-selector {
+    @include suspendButton(50%, 0, $pageWidth);
+    padding: 0 $bigPaddingValue 0.320000rem;
+    background: $blockBackground;
+    border-top-left-radius: 0.266667rem;
+    border-top-right-radius: 0.266667rem;
+
+    /* faster than normal */
+    animation-duration: 0.5s;
+
+    h3 {
+      @include oneLineHeightBlock (1.546667rem);
+      position: relative;
+      text-align: center;
+      font-weight: $middleBoldFontWeight;
+      font-size: 0.453333rem;
+      color: $primaryFontColor;
+      border-bottom: $commonBorder;
+
+      .close-btn {
+        position: absolute;
+        right: 0;
+        color: $lighterFontColor;
+
+        .ei {
+          font-size: 0.400000rem;
+        }
+      }
+    }
+
+    .options-wrapper {
+      padding: 0.533333rem 0 0.400000rem;
+      max-height: 7.013333rem;
+      overflow-y: scroll;
+
+      > a {
+        @include oneLineEllipsis;
+        @include oneLineHeightBlock (0.960000rem);
+        display: inline-block;
+        margin-right: 0.400000rem;
+        max-width: 100%;
+        margin-bottom: 0.320000rem;
+        padding: 0 0.320000rem;
+        border-radius: 0.480000rem;
+        font-size: 0.373333rem;
+        font-weight: normal;
+        color: $lighterFontColor;
+        background: #f2f2f2;
+        border: 1 solid #f2f2f2;
+
+        &.active {
+          color: $activeColor;
+          border:  1 solid $activeColor;
+          background: rgba(239, 83, 61, 0.05);
+        }
+      }
+    }
+
+    .sure-buy-wrapper {
+      padding-top: 0.400000rem;
+
+      .sure-buy {
+        @include oneLineHeightBlock (1.200000rem);
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        border-radius: 0.600000rem;
+        font-size: 0.453333rem;
+        color: #fff;
+        background: #f0513a;
+      }
+    }
+  }
+}
+
+header {
+  z-index: 600;
+  $height: 1.120000rem;
+  @include oneLineHeightBlock($height);
+  position: relative;
+  text-align: center;
+  background: $blockBackground;
+
+  a {
+    @include oneLineHeightBlock($height);
+    position: absolute;
+    top: 0;
+    color: $primaryFontColor;
+  }
+
+  .go-back {
+    left: $bigPaddingValue;
+
+    .ei {
+      font-size: $h1FontSize;
+    }
+  }
+
+  .title {
+    padding: 0 1.786667rem;
+    font-size: $h1FontSize;
+    font-weight:  $middleBoldFontWeight;
+  }
+
+  .nav-button {
+    right: $bigPaddingValue;
+    font-size: $h2FontSize;
+
+    > span {
+      display: inline-block;
+      vertical-align: 0;
+
+      &.rx {
+        animation-name: rX;
+      }
+      &.reversed-rx {
+        animation-name: reversedRX;
+      }
+    }
+
+    .ei {
+      font-size: 0.400000rem;
+    }
+  }
+}
+
+.banner {
+  height: 5.626667rem;
+  position: relative;
+
+  > img {
+    @include innerBoxImg;
+  }
+
+  .play-btn {
+    z-index: 100;
+    @include absoluteCenterMobile;
+
+    > img {
+      @include innerBoxImg;
+    }
+  }
+
+  #player-wrapper {
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.summary {
+  color: $primaryFontColor;
+  margin-bottom: 0.266667rem;
+  padding: $majorGap $bigPaddingValue $majorGap;
+  background: $blockBackground;
+
+  h3 {
+    margin-bottom: 0.3rem;
+    font-size: 0.506667rem;
+    font-weight: $middleBoldFontWeight;
+  }
+
+  > p {
+    text-align: center;
+    display: inline-block;
+    margin-right: 0.2rem;
+    margin-bottom: 0.366667rem;
+  }
+
+  .price {
+    font-size: 0.666667rem;
+    color: $activeColor;
+
+    > .small {
+      font-size: 0.480000rem;
+    }
+  }
+
+  @mixin downInline {
+    line-height: 0.320000rem;
+  }
+
+  .ori-price {
+    @include downInline;
+    color: $lighterFontColor;
+    font-size: 0.320000rem;
+  }
+
+  .tag {
+    @include downInline;
+    padding: 0 0.213333rem;
+    vertical-align: 2px;
+    color: $activeColor;
+    font-size: 0.266667rem;
+    border-radius: 0.160000rem;
+    background: $activeBackground;
+  }
+
+  .protocol {
+    margin-bottom: 0.46667rem;
+    font-size: 0.346667rem;
+  }
+
+  .specification {
+    position: relative;
+    font-size: 0.373333rem;
+    color: $primaryFontColor;
+
+    .inline-label {
+      color: $lighterFontColor;
+    }
+
+    .inline-btn {
+      position: absolute;
+      right: 0;
+      color: $activeColor;
+
+      .ei {
+        font-size: 0.320000rem;
+      }
+    }
+  }
+}
+
+.info-nav-wrapper {
+  height: 1.466667rem;
+  background: $blockBackground;
+
+  .info-nav {
+    display: table;
+    width: $pageWidth;
+    height: 1.466667rem;
+    border-bottom: $commonBorder;
+    background: $blockBackground;
+
+    &.fixed {
+      z-index: 100;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      margin-left: 0 - $pageWidth / 2;
+    }
+
+    > li {
+      position: relative;
+      display: table-cell;
+      width: 25%;
+      text-align: center;
+      vertical-align: middle;
+
+      > a {
+        font-size: 0.426667rem;
+        font-weight: $middleBoldFontWeight;
+        color: $lighterFontColor;
+      }
+
+      &.active > a {
+        color: $primaryFontColor;
+      }
+
+      .underline {
+        display: none;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        margin-left: -0.266667rem;
+        width: 0.533333rem;
+        height: 0.080000rem;
+        border-radius: 0.040000rem;
+        background: #ef533d;
+      }
+
+      &.active .underline {
+        display: block;
+      }
+    }
+  }
+}
+
+.info-show {
+  background: $blockBackground;
+
+  > li {
+    display: none;
+    padding: 0 $bigPaddingValue;
+
+    &.no-padding {
+      padding: 0;
+    }
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.chunk {
+  border-bottom: $commonBorder;
+  padding: 0.533333rem 0;
+
+  h4 {
+    position: relative;
+    margin-bottom: 0.533333rem;
+    padding-left: 0.320000rem;
+    font-size: 0.426667rem;
+    font-weight: $middleBoldFontWeight;
+    color: $primaryFontColor;
+
+    .sideline {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 0.133333rem;
+      height: 0.320000rem;
+      margin-top: -0.160000rem;
+      border-radius: 0.066667rem;
+      background: $activeColor;
+    }
+  }
+
+  .content {
+    font-size: 0.373333rem;
+    color: $primaryFontColor;
+
+    .labels {
+      display: table;
+      width: 100%;
+
+      > li {
+        display: table-cell;
+
+        &:nth-of-type(3n+1) {
+          width: 30%;
+        }
+        &:nth-of-type(3n+2) {
+          width: 36%;
+        }
+
+        .ei {
+          vertical-align:  -2;
+          font-size: 0.400000rem;
+          color: $activeColor;
+        }
+      }
+    }
+
+    .size {
+      width: 100%;
+
+      td {
+        padding: 0.200000rem 0;
+        text-align: left;
+        vertical-align: top;
+        font-size: 0.373333rem;
+        line-height: 0.586667rem;
+
+        &.inline-label {
+          width: 1.893333rem;
+          text-align: right;
+          color: $lighterFontColor;
+        }
+      }
+      tr:first-child td {
+        padding-top: 0;
+      }
+      tr:last-child td {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+.collapse {
+
+  .collapse-header {
+    display: block;
+    position: relative;
+    padding: 0.640000rem 1.493333rem 0.640000rem $bigPaddingValue;
+    border-bottom: $commonBorder;
+    color: $primaryFontColor;
+    font-size: 0.426667rem;
+
+    span {
+      display: block;
+      position: absolute;
+      right: $bigPaddingValue;
+      top: 50%;
+      @include oneLineHeightBlock (0.533333rem);
+      margin-top: -0.266667rem;
+
+      &.rx {
+        animation-name: rX;
+      }
+      &.reversed-rx {
+        animation-name: reversedRX;
+      }
+
+      .ei {
+        font-size: 0.266667rem;
+        color: $lighterFontColor;
+      }
+    }
+  }
+
+  .collapse-content {
+    display: none;
+    background: #f7f7f7;
+
+    h5 {
+      position: relative;
+      padding: 0.640000rem $bigPaddingValue 0.320000rem;
+      color: $lighterFontColor;
+      font-size: 0.320000rem;
+      font-weight: $regularFontWeight;
+      line-height: 0.480000rem;
+
+      .sideline {
+        position: absolute;
+        left: $bigPaddingValue;
+        top: 0.720000rem;
+        width: 0.106667rem;
+        height: 0.266667rem;
+        -webkit-border-radius: 0.053333rem;
+        -moz-border-radius: 0.053333rem;
+        border-radius: 0.053333rem;
+        background: $activeColor;
+      }
+
+      p {
+        padding-left: 0.266667rem;
+      }
+    }
+
+    .courseware {
+      > li {
+        display: block;
+        padding: 0.400000rem $bigPaddingValue 0.400000rem 0.880000rem;
+        border-bottom: $commonBorder;
+        font-size: 0.400000rem;
+        line-height: 0.533333rem;
+      }
+    }
+  }
+
+  &.active {
+    .collapse-header {
+      font-weight: $middleBoldFontWeight;
+
+      span {
+        .ei {
+          color: $activeColor;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rX {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes reversedRX {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.spokesman {
+  padding-top: 0.533333rem;
+
+  .secondary-ad {
+    display: block;
+    margin-bottom: 0.533333rem;
+
+    > img {
+      width: 100%;
+      border-radius: 0.133333rem;
+    }
+  }
+
+  .spokesman-list {
+    > li {
+      display: block;
+      width: 47%;
+      margin-bottom: 0.666667rem;
+      text-align: center;
+
+      &:nth-of-type(2n+1) {
+        float: left;
+      }
+      &:nth-of-type(2n) {
+        float: right;
+      }
+
+      > img {
+        width: 100%;
+        height: 5.333333rem;
+        border-radius: 0.133333rem;
+      }
+
+      > h4 {
+        padding-top: 0.320000rem;
+        color: $primaryFontColor;
+        line-height: 0.533333rem;
+        font-size: 0.426667rem;
+        font-weight: $middleBoldFontWeight;
+
+        > p {
+          padding-top: 0.12rem;
+          font-size: 0.373333rem;
+          font-weight: $regularFontWeight;
+        }
+      }
+    }
+  }
+}
+
+.reply-chunk {
+  display: table;
+  padding: 0 $bigPaddingValue;
+  border-bottom: $commonBorder;
+  width: 100%;
+
+  > div {
+    display: table-cell;
+    padding: 0.480000rem 0;
+    vertical-align: top;
+    text-align: left;
+
+    &.mark {
+      width: 0.720000rem;
+      color: $activeColor;
+      line-height: 0.560000rem;
+      font-size: 0.426667rem;
+      font-weight: $middleBoldFontWeight;
+    }
+
+    &.reply {
+      font-size: 0.373333rem;
+      line-height: 0.640000rem;
+      font-weight: $regularFontWeight;
+      color: $lighterFontColor;
+
+      a {
+        color: $activeColor;
+        text-decoration: underline;
+      }
+
+      > h4 {
+        padding-bottom: 0.320000rem;
+        line-height: 0.560000rem;
+        font-size: 0.426667rem;
+        font-weight: $middleBoldFontWeight;
+        color: $primaryFontColor;
+      }
+    }
+  }
+}
+

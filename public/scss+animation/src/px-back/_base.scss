@@ -1,0 +1,109 @@
+/* Common StyleSheet -- Start */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border: none;
+  box-sizing: border-box;
+  // font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+a {
+  cursor: pointer;
+
+  &:visited, &:link, &:active, &:hover {
+    text-decoration: none;
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.hide {
+  display: none !important;
+}
+
+.cancelled {
+  text-decoration: line-through;
+}
+
+.jw-icon-barlogo-new {
+  display: none !important;
+}
+/* Common StyleSheet -- End */
+
+
+/* Common Mobile StyleSheet -- Start */
+$pageWidth: 750px;
+.page {
+  width: $pageWidth;
+  margin: 0 auto;
+}
+/* Common Mobile StyleSheet -- End */
+
+
+/* Common reused module -- Start */
+@mixin letterSpace($space) {
+  letter-spacing: $space;
+  text-indent: $space;
+}
+
+@mixin oneLineEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin oneLineHeightBlock($height) {
+  height: $height;
+  line-height: $height;
+}
+
+@mixin innerBoxImg {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin absoluteCenterMobile {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absoluteCenterPC($width, $height) {
+  position: absolute;
+  width: $width;
+  height: $height;
+  left: 50%;
+  top: 50%;
+  margin-left: (0px - $width) / 2;
+  margin-top: (0px - $height) / 2;
+}
+
+@mixin suspendButton($right, $bottom, $width: 0) {
+  position: fixed;
+  right: $right;
+  bottom: $bottom;
+
+  @if $width > 0 {
+    width: $width;
+    margin-right: 0 - $width / 2;
+  }
+}
+
+@mixin centerAndMiddleCell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+/* Common reused module -- End */

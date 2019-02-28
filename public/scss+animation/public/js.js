@@ -121,16 +121,10 @@ $(document).ready(function () {
     packupOrderSelector();
   });
 
-  // 切换班次
-  $('.options-wrapper > a').click(function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    if ($(this).hasClass('active')) return;
-
-    var $this = $(this),
-      pcid = $(this).data('id'),
-      pcidType = $(this).data('type');
+  // 获取班次信息
+  function getInfo($this, callback) {
+    var pcid = $this.data('id'),
+      pcidType = $this.data('type');
 
     var idSet = {};
     idSet[pcidType] = pcid.toString();
@@ -150,11 +144,30 @@ $(document).ready(function () {
         // 更新信息
         updateInfo(data[pcidType][pcid], pcidType, pcid);
         // 切换活跃状态
-        $this.addClass('active').siblings().removeClass('active');
+        callback(pcidType, pcid);
       },
       error: function () {
         alert('对不起，网络连接失败，请稍后重试或咨询网校客服');
       }
+    });
+  }
+
+  // 初始化第一个班次信息
+  getInfo($('#primary_buy'), function (pcidType, pcid) {
+    if ($('.order-selector-wrapper .options-wrapper > a').length <= 1) {
+      $('#primary_buy').attr('href', '//e.eoffcn.com/space.php?do=course&viewcourse=buycourseinfo_jump&' + pcidType + '=' + pcid);
+    }
+  });
+
+  // 切换班次
+  $('.options-wrapper > a').click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var $this = $(this);
+    if ($this.hasClass('active')) return;
+    getInfo($this, function () {
+      $this.addClass('active').siblings().removeClass('active')
     });
   });
 
@@ -199,7 +212,7 @@ $(document).ready(function () {
     }
 
     // 购买链接
-    $payBtn.attr('href', '//e.eoffcn.com/space.php?do=course&viewcourse=buycourseinfo_jump&' + pcidType + '=' + pcid );
+    $payBtn.attr('href', '//e.eoffcn.com/space.php?do=course&viewcourse=buycourseinfo_jump&' + pcidType + '=' + pcid);
   }
 
   function br2Semicolon(str) {
@@ -229,12 +242,14 @@ $(document).ready(function () {
   var adSrc = $('meta[name=adsrc]').attr('content');
   $('.banner .play-btn').click(function () {
     $('#player-wrapper').show();
-    playvideo(mdaId, 'player-wrapper', false, {
+
+    var adSetting = (adUrl && adSrc) ? {
       pause: {
         image: adSrc,
         url: adUrl,
       }
-    });
+    } : null;
+    playvideo(mdaId, 'player-wrapper', false, adSetting);
   });
 
   // 抽屉导航 抽出 && 收起

@@ -5,3 +5,6 @@
 # Sass compiled file
 *.scss.css
 *.sass.css
+
+# package-lock.json
+package-lock.json

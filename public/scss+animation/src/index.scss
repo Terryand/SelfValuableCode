@@ -523,6 +523,32 @@ header {
   }
 }
 
+.no-outline-wrapper {
+  display: table;
+  width: 100%;
+  height: 7.733333rem;
+
+  .no-outline {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+    .img-wrapper {
+      margin-bottom: 0.640000rem;
+
+      img {
+        width: 3.000000rem;
+      }
+    }
+
+    .reminder {
+      font-size: 0.373333rem;
+      line-height: 0.533333rem;
+      color: $lighterFontColor;
+    }
+  }
+}
+
 .collapse {
 
   .collapse-header {

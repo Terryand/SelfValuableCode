@@ -29,6 +29,7 @@ function playvideo(mda, domID, mp4, imageAdvsSetting) {
 
 $(document).ready(function () {
   document.addEventListener('touchstart', function (event){});
+  var apiDomain = $('meta[name=systemenv]').attr('content');
 
   // nav
   if (window.history.length > 1) {
@@ -103,7 +104,7 @@ $(document).ready(function () {
   $('.btn-group .buy').click(function () {
     var buyHref = $(this).attr('href');
 
-    if (!buyHref || buyHref === 'javascript:;') {
+    if (!$(this).hasClass('disabled') && (!buyHref || buyHref === 'javascript:;')) {
       // 交互要求，不同地方唤起展示不同文案
       $('.order-selector .sure-buy').html('确 定');
 
@@ -129,7 +130,7 @@ $(document).ready(function () {
     var idSet = {};
     idSet[pcidType] = pcid.toString();
     $.ajax({
-      url: '//e.eoffcn.com/price_post.php',
+      url: apiDomain + '/price_post.php',
       type: 'post',
       dataType: 'json',
       data: {
@@ -154,8 +155,9 @@ $(document).ready(function () {
 
   // 初始化第一个班次信息
   getInfo($('#primary_buy'), function (pcidType, pcid) {
-    if ($('.order-selector-wrapper .options-wrapper > a').length <= 1) {
-      $('#primary_buy').attr('href', '//e.eoffcn.com/space.php?do=course&viewcourse=buycourseinfo_jump&' + pcidType + '=' + pcid);
+    var $primaryBuy = $('#primary_buy');
+    if ($('.order-selector-wrapper .options-wrapper > a').length <= 1 && !$primaryBuy.hasClass('disabled')) {
+      $primaryBuy.attr('href', apiDomain + '/space.php?do=course&viewcourse=buycourseinfo_jump&' + pcidType + '=' + pcid);
     }
   });
 
@@ -212,7 +214,7 @@ $(document).ready(function () {
     }
 
     // 购买链接
-    $payBtn.attr('href', '//e.eoffcn.com/space.php?do=course&viewcourse=buycourseinfo_jump&' + pcidType + '=' + pcid);
+    $payBtn.attr('href', apiDomain + '/space.php?do=course&viewcourse=buycourseinfo_jump&' + pcidType + '=' + pcid);
   }
 
   function br2Semicolon(str) {

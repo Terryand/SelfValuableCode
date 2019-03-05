@@ -136,6 +136,10 @@ body, .page {
         border-top-right-radius: 0.600000rem;
         border-bottom-right-radius: 0.600000rem;
         background: linear-gradient(to right, #ff401a, #ef533d);
+
+        &.disabled {
+          background: $lighterFontColor;
+        }
       }
     }
   }
@@ -194,13 +198,14 @@ body, .page {
         border-radius: 0.480000rem;
         font-size: 0.373333rem;
         font-weight: normal;
-        color: $lighterFontColor;
+        color: #777b80;
         background: #f2f2f2;
-        border: 1 solid #f2f2f2;
+        border: 1px solid #f2f2f2;
 
         &.active {
+          font-weight: $middleBoldFontWeight;
           color: $activeColor;
-          border:  1 solid $activeColor;
+          border: 1px solid $activeColor;
           background: rgba(239, 83, 61, 0.05);
         }
       }
@@ -218,6 +223,10 @@ body, .page {
         font-size: 0.453333rem;
         color: #fff;
         background: #f0513a;
+
+        &.disabled {
+          background: $lighterFontColor;
+        }
       }
     }
   }

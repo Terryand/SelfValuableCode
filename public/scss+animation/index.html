@@ -18,6 +18,7 @@
   <meta name="mda" content="mda-jbemk0ig409qqtr6">
   <meta name="adurl" content="//www.eoffcn.com">
   <meta name="adsrc" content="http://statics.eoffcn.com/statics/images/show/xqydt.jpg">
+  <meta name="systemenv" content="//e.test.eoffcn.com">
 
   <style>
     a:hover, a:visited, a:link, a:active {
@@ -242,7 +243,7 @@
 
       <li class="no-padding">
         <!-- 没有大纲 -->
-        <div class="no-outline-wrapper">
+        <div class="no-outline-wrapper" style="display: none;">
           <div class="no-outline">
             <div class="img-wrapper">
               <img src="./public/img/nooutline.png" alt="无课程大纲">
@@ -255,7 +256,7 @@
         </div>
 
         <!-- 有大纲 -->
-        <div style="display: none;">
+        <div>
           <!-- 第一棵树展开 -->
           <div class="collapse active">
             <a class="collapse-header">
@@ -263,42 +264,44 @@
               <span class="animated"><i class="ei ei-arrow-bottom"></i></span>
             </a>
             <div class="collapse-content" style="display: block;">
-              <h5>
-                <div class="sideline"></div>
-                <p>
-                  第一章：行测技巧 > 第一周 > 第一期：结构化知识论
-                </p>
-              </h5>
-              <ul class="courseware">
-                <li>
-                  <i>01.</i>
-                  教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识
-                </li>
-                <li>
-                  <i>02.</i>
-                  教育教学知识
-                </li>
-              </ul>
-            </div>
-            <div class="collapse-content">
-              <h5>
-                <div class="sideline"></div>
-                <p>
-                  第二章：行测技巧 > 第一周 > 第二期：结构化知识论 > 第一节：高分攻略知识能力提升技巧
-                </p>
-              </h5>
-              <ul class="courseware">
-                <li>
-                  <i>03.</i>
-                  教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识
-                </li>
-              </ul>
+              <div>
+                <h5>
+                  <div class="sideline"></div>
+                  <p>
+                    第一章：行测技巧 > 第一周 > 第一期：结构化知识论
+                  </p>
+                </h5>
+                <ul class="courseware">
+                  <li>
+                    <i>01.</i>
+                    教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识
+                  </li>
+                  <li>
+                    <i>02.</i>
+                    教育教学知识
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h5>
+                  <div class="sideline"></div>
+                  <p>
+                    第二章：行测技巧 > 第一周 > 第二期：结构化知识论 > 第一节：高分攻略知识能力提升技巧
+                  </p>
+                </h5>
+                <ul class="courseware">
+                  <li>
+                    <i>03.</i>
+                    教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识教育教学知识
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 
           <div class="collapse">
             <div class="collapse-header">
-              第一层级名称第一层级名称
+              第二层级名称第一层级名称
               <span class="animated"><i class="ei ei-arrow-bottom"></i></span>
             </div>
             <div class="collapse-content animated">
@@ -462,11 +465,12 @@
       <div class="options-wrapper">
         <!-- 请通过 data-id 字段，提供班次的 cid / pid。 默认的班次通过 class="active" 标记 -->
         <a class="active" data-id="123" data-type="pid">江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试</a>
+        <a data-id="123" data-type="pid">江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试江苏省公务员考试</a>
       </div>
 
       <!-- 模板在此提供默认班次的支付链接 -->
       <div class="sure-buy-wrapper">
-        <a id="pay_btn" href="//buy?id=123" class="sure-buy">确&nbsp;&nbsp;定</a>
+        <a class="disabled" id="pay_btn" href="//buy?id=123" class="sure-buy">确&nbsp;&nbsp;定</a>
       </div>
     </div>
   </div>
